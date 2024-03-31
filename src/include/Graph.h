@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 
@@ -15,6 +16,7 @@ class Graph{
     std::size_t size;
     bool active;
 
+    Graph() {}
     Graph(std::size_t size_): g(size_), size(size_), active_crossroads(size_, true), active(1){
       for(int i = 0; i < size_; i++){
         g[i].resize(size_);

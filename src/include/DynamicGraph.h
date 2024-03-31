@@ -2,13 +2,15 @@
 #include <iostream>
 #include <vector>
 #include "Graph.h"
+#include "Dijikstra.h"
 
 // Class for delegating requests
 class DynamicGraph {
   public:
     Graph g;
+    Dijikstra dj;
 
-    DynamicGraph(std::size_t num) : g(num){}
+    DynamicGraph(std::size_t num) : g(num), dj(Graph(num)){}
 
     std::size_t       sp_length(int u, int v);
     std::vector<int>  sp_route(int u, int v);
@@ -23,5 +25,5 @@ class DynamicGraph {
 
     void print(){g.self_print();}
 
-    void initialize(){ g.initialize(); }
+    void initialize();
 };
