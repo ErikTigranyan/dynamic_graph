@@ -3,7 +3,14 @@
 
 
 int main() {
-  DynamicGraph g(10);
-  std::cout << "TEST " << g.g[5][4] << std::endl;
+  DynamicGraph g(3);
+  g.crossroad_added(0);
+  g.crossroad_added(3);
+  g.crossroad_added(2);
+  g.initialize();
+  std::cout << "INITIALIZED \n \n " << std::endl;
+  g.print();
+
   return 0;
 }
+
