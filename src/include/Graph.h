@@ -30,5 +30,5 @@ class Graph{
       return g[i];
     }
     void self_print();
-    void initialize();
+    void initialize(); 
 };
