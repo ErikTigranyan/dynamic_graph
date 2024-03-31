@@ -34,3 +34,11 @@ void Graph::initialize() {
       g[u][v] = l; 
     }
   }
+
+void Graph::add_street(int u, int v, std::size_t length){
+  g[u][v] = length;
+}
+
+void Graph::remove_street(int u, int v){
+  g[u][v] = INF;
+}

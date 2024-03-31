@@ -1,7 +1,7 @@
 #include <vector>
 #include <queue>
-#include <stack>
 #include "Graph.h"
+#include "IntermediatePaths.h"
 
 
 class Dijikstra{
@@ -15,5 +15,4 @@ class Dijikstra{
 
   std::size_t distance(int u, int v);
   std::vector<std::size_t> distances(int v);
-
-}
+};
