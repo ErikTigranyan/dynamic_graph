@@ -10,15 +10,18 @@ void Graph::remove_crossroad(int v){
 }
 
 void Graph::add_crossroad(int v){
+  size++;
   std::vector<int> new_c(size, 0);
-  g.insert(g.begin() + v, new_c);
+  g.push_back(new_c);
+  active_crossroads.push_back(true);
 }
 
 
 void Graph::self_print(){
   for(int i=0;i<size;i++) {
     for(int j=0;j<size;j++) {
-      std::cout << g[i][j] << " ";
+      // if(active_crossroads[i])
+        std::cout << g[i][j] << " ";
     }
     std::cout << "\n";
   }

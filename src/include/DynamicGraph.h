@@ -10,8 +10,7 @@ class DynamicGraph {
     Graph g;
     Dijikstra dj;
 
-    DynamicGraph(std::size_t num) : g(num), dj(Graph(num)){}
-
+    DynamicGraph(std::size_t num=0) : g(num), dj(Graph(num)){}
     std::size_t       sp_length(int u, int v);
     std::vector<int>  sp_route(int u, int v);
     void              street_added(int u, int v, std::size_t length);

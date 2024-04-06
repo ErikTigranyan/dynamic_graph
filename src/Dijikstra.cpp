@@ -51,14 +51,15 @@ std::pair<int, std::vector<int>> Dijikstra::distance(int v, int dest) {
                   dist[v] = dist[u] + g[u][v]; 
                   pq.push({dist[v], v}); 
                   path[v] = u;
+                    
                 }
             } 
         }
     } 
-    if(dest > 0){
-      std::vector<int> back = backtrack(path, v, dest);
-      return std::make_pair(dist[dest], back);
-    }
+    
+    std::vector<int> back = backtrack(path, v, dest);
 
+    return std::make_pair(dist[dest], back);
+    
 }
 
