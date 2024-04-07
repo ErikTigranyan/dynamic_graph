@@ -23,18 +23,24 @@ void Graph::add_crossroad(int v){
   }
   
   size++;
-  std::vector<int> new_c(size, 0);
+  std::vector<int> new_c(size, INF);
   g.push_back(new_c);
+
+  for(int i=0;i<g.size();i++) {
+    g[i].push_back(INF);
+  }
+
+  g[size-1][size-1] = 0;
   active_crossroads.push_back(true);
 }
 
 
 void Graph::self_print(){
   for(int i=0;i<size;i++) {
-    for(int j=0;j<size;j++) {
-      if(active_crossroads[i])
-        std::cout << g[i][j] << " ";
-    }
+      for(int j=0; j < size;j++) {
+          if(active_crossroads[j] && active_crossroads[i])
+            std::cout << g[i][j] << " ";
+      }
     std::cout << "\n";
   }
 }
@@ -51,6 +57,15 @@ void Graph::initialize() {
   }
 
 void Graph::add_street(int u, int v, std::size_t length){
+  if(!active){
+    std::cout << "ERROR: construction is finished!" << std::endl;
+    return;
+  }
+  if(u > size || v > size){
+    std::cout << "ERROR: No such crossroad" << std::endl;
+    return;
+  }
+
   g[u][v] = length;
 }
 

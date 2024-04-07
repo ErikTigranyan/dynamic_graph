@@ -10,9 +10,9 @@ typedef std::vector<std::vector<int>> Matrix;
 class Graph{
   private:
     Matrix g;
-    std::vector<bool> active_crossroads;
 
   public:
+    std::vector<bool> active_crossroads;
     std::size_t size;
     bool active;
 
@@ -22,7 +22,13 @@ class Graph{
         g[i].resize(size_);
         for(int j=0;j<size_;j++) {
           g[i][j] = INF;
+          
+          if(i == j)
+            g[i][i] = 0;
+          
+          
         }
+
       }
     }
 
@@ -33,8 +39,7 @@ class Graph{
     void remove_street(int u, int v);
 
     Matrix get() {return g;}
-    // operator*
-    // std::size_t size(){ return g.size(); }
+
     std::vector<int>& operator[] (std::size_t i){
       return g[i];
     }

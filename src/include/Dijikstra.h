@@ -8,7 +8,6 @@ class Dijikstra{
   public:
   Graph g;
   IntermediatePaths inter;
-  // void dfs
   public:
   Dijikstra(){};
   Dijikstra(Graph g_) : g(g_){}

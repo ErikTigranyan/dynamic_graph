@@ -11,11 +11,11 @@ class IntermediatePaths{
       std::size_t operator() (const std::pair<T1, T2>& pair) const {
           auto hash1 = std::hash<T1>{}(pair.first);
           auto hash2 = std::hash<T2>{}(pair.second);
-          return hash1 ^ hash2; // Simple hash combination
+          return hash1 ^ hash2; 
       }
   };
   public:
-    std::unordered_map<std::pair<int, int>, std::vector<int>, pair_hash> paths; // TODO: fix compile error
+    std::unordered_map<std::pair<int, int>, std::vector<int>, pair_hash> paths;
 
     void add_path(std::pair<int, int>, std::vector<int>);
     std::optional<std::vector<int>>  get_path(int u, int v);
