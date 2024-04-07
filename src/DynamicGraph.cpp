@@ -35,3 +35,18 @@ std::size_t DynamicGraph::sp_length(int u, int v){
   }
   return dst;
 }
+
+std::vector<int>  DynamicGraph::sp_route(int u, int v){
+  if(dj.inter.get_path(u, v) != std::nullopt){
+    std::cout << "GET PATH FROM SAVED PATHS" << std::endl;
+    return dj.inter.get_path(u, v).value() ;
+  }
+
+  int dst = dj.distance(u, v).first;
+  std::vector<int> path = dj.distance(u, v).second;
+  if (dst == INF){
+    std::cout << "There is no path for given vertexes" << std::endl;
+    return std::vector<int>();
+  }
+  return path;
+}

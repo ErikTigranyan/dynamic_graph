@@ -3,13 +3,25 @@
 
 Graph::Graph(const Graph& other){
   g = other.g;
+  size = other.size;
+  active_crossroads = other.active_crossroads;
+  active = other.active;
 }
 
 void Graph::remove_crossroad(int v){
+  if(!active){
+    std::cout << "WARNING: construction is not started!" << std::endl;
+    return;
+  }
   active_crossroads[v] = false;
 }
 
 void Graph::add_crossroad(int v){
+  if(!active){
+    std::cout << "WARNING: construction is not started!" << std::endl;
+    return;
+  }
+  
   size++;
   std::vector<int> new_c(size, 0);
   g.push_back(new_c);
@@ -20,7 +32,7 @@ void Graph::add_crossroad(int v){
 void Graph::self_print(){
   for(int i=0;i<size;i++) {
     for(int j=0;j<size;j++) {
-      // if(active_crossroads[i])
+      if(active_crossroads[i])
         std::cout << g[i][j] << " ";
     }
     std::cout << "\n";
