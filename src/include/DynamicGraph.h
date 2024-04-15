@@ -18,7 +18,7 @@ class DynamicGraph {
     void              crossroad_added(int v);
     void              crossroad_removed(int v);
     void              construction_started(){g.active=1; dj.g.active=1;};
-    void              construction_finished(){g.active = 0;dj.g.active=1;}
+    void              construction_finished(){g.active = 0;dj.g.active=0;}
 
     std::vector<int>& operator[] (std::size_t i){ return g[i]; }
 

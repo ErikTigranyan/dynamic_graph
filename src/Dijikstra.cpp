@@ -31,7 +31,7 @@ std::pair<int, std::vector<int>> Dijikstra::distance(int v, int dest) {
     int vertices = g.size; 
     std::vector<std::size_t> dist(vertices, INF);  
     std::vector<bool> visited(vertices, false);  
-    std::vector<int> previous(vertices, INF); 
+    std::vector<int> previous(vertices, -1); 
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> pq; 
 
     dist[v] = 0; 
@@ -65,7 +65,7 @@ std::pair<int, std::vector<int>> Dijikstra::distance(int v, int dest) {
     // Update intermediate paths
     for(int n = 0; n < dest; ++n){
         for (int i = 0; i < dest; ++i) {
-            if (i != n && i != dest && previous[i] != INF) {
+            if (i != n && i != dest && previous[i] != -1) {
                 std::vector<int> path = backtrack(previous, n, i);
                 inter.add_path(std::make_pair(n, i), path);
             }
